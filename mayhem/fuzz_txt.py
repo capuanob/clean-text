@@ -10,10 +10,7 @@ def TestOneInput(data):
     fdp = atheris.FuzzedDataProvider(data)
 
     try:
-        clean(fdp.ConsumeString(200), fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool(),
-              fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool(),
-              fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool())
-
+        clean(fdp.ConsumeString(200))
     except ValueError:
         pass
 
