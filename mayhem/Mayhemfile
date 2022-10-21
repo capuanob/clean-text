@@ -1,6 +1,7 @@
 project: clean-text
 target: txt-fuzz
-
+testsuite:
+    - file://mayhem/testsuite
 cmds:
   - cmd: /src/mayhem/fuzz_txt.py
     libfuzzer: true

@@ -4,7 +4,7 @@ import sys
 
 with atheris.instrument_imports():
     from cleantext import clean
-
+    from cleantext.sklearn import CleanTransformer
 
 @atheris.instrument_func
 def TestOneInput(data):
@@ -14,6 +14,8 @@ def TestOneInput(data):
         clean(fdp.ConsumeString(200), fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool(),
               fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool(),
               fdp.ConsumeBool(), fdp.ConsumeBool(), fdp.ConsumeBool())
+        cleaner = CleanTransformer(fdp.ConsumeBool(), fdp.ConsumeBool())
+        cleaner.transform([fdp.ConsumeString(200), fdp.ConsumeString(200)])
 
     except ValueError:
         pass
